@@ -1,5 +1,8 @@
+"use client";
+
 import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 import { StatStrip } from "@/components/ui/StatStrip";
+import Image from "next/image";
 
 const stats = [
   { value: "7+", label: "Years Experience", dataCount: 7, suffix: "+" },
@@ -59,45 +62,15 @@ export function Hero() {
         className="hero-right relative min-h-[280px] flex items-center justify-center overflow-hidden bg-dark"
         aria-hidden="true"
       >
-        {/* Diagonal gold stroke pattern */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-[0.07]"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="diagonal-lines"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-              patternTransform="rotate(45)"
-            >
-              <line
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="40"
-                stroke="#B8902A"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#diagonal-lines)" />
-        </svg>
-
-        {/* Watermark */}
-        <div
-          className="hero-bg-text select-none pointer-events-none font-display font-light"
-          style={{
-            fontSize: "clamp(80px, 18vw, 200px)",
-            color: "transparent",
-            WebkitTextStroke: "1px rgba(184,144,42,0.15)",
-            lineHeight: 1,
-            userSelect: "none",
-          }}
-        >
-          INLAY
-        </div>
+        <Image
+          src="/images/image.png"
+          alt="Inlay Interior Design"
+          // fill
+          width={1000000}
+          height={1000000}
+          // style={{ objectFit: "fill" }}
+          className="object-contain "
+        />
       </div>
     </section>
   );
