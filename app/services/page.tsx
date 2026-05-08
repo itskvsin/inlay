@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { EyebrowLabel } from "@/components/ui/EyebrowLabel";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { allServices as services, processSteps as steps, pricingPackages as packages, servicesFaqs as faqs } from "@/lib/data/services";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Services — Inlay Interior Design, Ahmedabad",
@@ -162,7 +163,7 @@ export default function ServicesPage() {
                   Common <em>enquiries.</em>
                 </h2>
                 <p className="font-body text-[13px] font-light leading-[1.85] text-muted">
-                  Can&apos;t find your answer? <a href="/contact" className="text-gold hover:text-gold-dim underline underline-offset-4 transition-colors duration-200">Reach out directly.</a>
+                  Can&apos;t find your answer? <Link href="/contact" className="text-gold hover:text-gold-dim underline underline-offset-4 transition-colors duration-200">Reach out directly.</Link>
                 </p>
               </div>
               <FAQAccordion items={faqs} />

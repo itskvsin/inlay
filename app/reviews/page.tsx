@@ -122,7 +122,7 @@ export default function ReviewsPage() {
             </h2>
             <div
               className="grid gap-4"
-              style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))" }}
+              style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 400px), 1fr))" }}
             >
               {reviews.map((r) => (
                 <ReviewCard key={r.author} {...r} />

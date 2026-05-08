@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { AnimationProvider } from "@/components/providers/AnimationProvider";
+import Link from "next/link";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -35,9 +36,9 @@ export default function RootLayout({
       className={`${cormorant.variable} ${jost.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink font-body">
-        <a href="#main-content" className="skip-link">
+        <Link href="#main-content" className="skip-link">
           Skip to content
-        </a>
+        </Link>
         <AnimationProvider>{children}</AnimationProvider>
       </body>
     </html>
