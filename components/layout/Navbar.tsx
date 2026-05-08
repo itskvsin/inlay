@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
@@ -34,24 +35,26 @@ export function Navbar() {
           }}
         >
           {/* Logo */}
-          <a
-            href="/"
-            className="font-display text-[22px] font-normal text-ink leading-none tracking-[0.06em] hover:tracking-[0.09em] transition-[letter-spacing] duration-200"
-            aria-label="Inlay Interior Design — home"
-          >
-            In<em>lay</em>
-          </a>
+          <Link href="/" className="flex items-center gap-2" aria-label="Inlay Interior Design">
+          <Image
+            src="/images/logo.jpg"
+            alt="Inlay Interior Design"
+            width={100}
+            height={40}
+            style={{ height: "auto" }}
+          />
+          </Link>
 
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-8" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
-                  className="font-body text-[12px] font-normal uppercase tracking-[0.10em] text-muted hover:text-ink transition-colors duration-200"
+                  className="font-body text-[12px] font-normal uppercase tracking-widest text-muted hover:text-ink transition-colors duration-200"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -65,19 +68,19 @@ export function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col gap-[5px] p-2"
+            className="md:hidden flex flex-col gap-1.25 p-2"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
           >
             <span
-              className={`block w-6 h-px bg-ink transition-transform duration-200 ${menuOpen ? "translate-y-[6px] rotate-45" : ""}`}
+              className={`block w-6 h-px bg-ink transition-transform duration-200 ${menuOpen ? "translate-y-1.5 rotate-45" : ""}`}
             />
             <span
               className={`block w-6 h-px bg-ink transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block w-6 h-px bg-ink transition-transform duration-200 ${menuOpen ? "-translate-y-[6px] -rotate-45" : ""}`}
+              className={`block w-6 h-px bg-ink transition-transform duration-200 ${menuOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
             />
           </button>
         </div>
@@ -92,13 +95,13 @@ export function Navbar() {
           <ul className="flex flex-col items-center gap-6" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="font-body text-[14px] font-normal uppercase tracking-[0.12em] text-muted hover:text-ink transition-colors duration-200"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="bg-dark border-t-2 border-gold">
@@ -11,7 +14,8 @@ export function Footer() {
         <div
           className="grid gap-12"
           style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
           }}
         >
           {/* Brand */}
@@ -20,7 +24,12 @@ export function Footer() {
               href="/"
               className="font-display text-[28px] font-normal text-[#F0EAD8] leading-none tracking-[0.06em] block mb-4"
             >
-              In<em>lay</em>
+              <Image
+                src="/images/logo.jpg"
+                alt="Inlay Interior Design"
+                width={100}
+                height={40}
+              />
             </a>
             <p className="font-body text-[13px] font-light leading-[1.7] text-[rgba(240,234,216,0.6)]">
               Spaces that tell your story.
@@ -45,12 +54,12 @@ export function Footer() {
                 { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="font-body text-[12px] uppercase tracking-[0.08em] text-[rgba(240,234,216,0.5)] hover:text-[#F0EAD8] transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -69,14 +78,14 @@ export function Footer() {
               >
                 +91 7016422677
               </a>
-              <a
+              <Link
                 href="https://wa.me/917016422677"
                 className="font-body text-[12px] uppercase tracking-[0.08em] text-[rgba(240,234,216,0.5)] hover:text-[#F0EAD8] transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 WhatsApp
-              </a>
+              </Link>
               <a
                 href="mailto:inlaydesign1829@gmail.com"
                 className="font-body text-[12px] text-[rgba(240,234,216,0.5)] hover:text-[#F0EAD8] transition-colors duration-200"
@@ -92,7 +101,8 @@ export function Footer() {
 
         <div className="border-t border-[rgba(255,255,255,0.08)] mt-12 pt-6 flex flex-col sm:flex-row justify-between gap-3">
           <p className="font-body text-[11px] text-[rgba(240,234,216,0.3)]">
-            © {new Date().getFullYear()} Inlay Interior Design. All rights reserved.
+            © {new Date().getFullYear()} Inlay Interior Design. All rights
+            reserved.
           </p>
           <p className="font-body text-[11px] text-[rgba(240,234,216,0.3)]">
             Satellite, Ahmedabad · Est. 2018

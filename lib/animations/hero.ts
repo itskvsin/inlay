@@ -6,7 +6,7 @@ export function initHero(): gsap.core.Timeline {
 
   // 1. Eyebrow line draws in from left
   tl.fromTo(
-    ".hero-eyebrow-line",
+    ".hero-eyebrow .section-eyebrow-line",
     { scaleX: 0, transformOrigin: "left" },
     { scaleX: 1, duration: 0.7, ease: "power3.inOut" }
   );

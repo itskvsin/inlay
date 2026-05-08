@@ -7,19 +7,34 @@ export function initMagneticCursor(): void {
   if (!cursor || !cursorDot) return;
 
   document.addEventListener("mousemove", (e) => {
-    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.6, ease: "power2.out" });
+    gsap.to(cursor, {
+      x: e.clientX,
+      y: e.clientY,
+      duration: 0.6,
+      ease: "power2.out",
+    });
     gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.15 });
   });
 
+  const resetCursor = () =>
+    gsap.to(cursor, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
+
   // Expand on interactive elements
-  document.querySelectorAll<HTMLElement>("a, button, .project-card, .service-card").forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      gsap.to(cursor, { scale: 2.5, opacity: 0.6, duration: 0.3, ease: "power2.out" });
+  document
+    .querySelectorAll<HTMLElement>("a, button, .project-card, .service-card")
+    .forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        gsap.to(cursor, {
+          scale: 2.5,
+          opacity: 0.6,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+      el.addEventListener("mouseleave", resetCursor);
+      // mouseleave doesn't fire when a click triggers navigation, so reset on mousedown too
+      el.addEventListener("mousedown", resetCursor);
     });
-    el.addEventListener("mouseleave", () => {
-      gsap.to(cursor, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
-    });
-  });
 
   // "View" label on project cards
   document.querySelectorAll<HTMLElement>(".project-card").forEach((el) => {

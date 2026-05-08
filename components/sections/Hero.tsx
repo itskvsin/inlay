@@ -12,7 +12,14 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))" }}>
+    <section id="hero" className="relative min-h-screen grid overflow-hidden" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))" }}>
+      <span
+        className="hero-bg-text absolute bottom-8 left-0 font-display font-light select-none pointer-events-none whitespace-nowrap"
+        style={{ fontSize: "clamp(80px, 18vw, 220px)", color: "rgba(28,26,22,0.04)", lineHeight: 1 }}
+        aria-hidden="true"
+      >
+        Interior
+      </span>
       {/* Left: Content */}
       <div
         className="flex flex-col justify-center"
@@ -53,7 +60,8 @@ export function Hero() {
           </div>
 
           {/* Stats */}
-          <StatStrip stats={stats} />
+          <div className="hero-divider-line h-px bg-line w-full origin-left mb-8" />
+          <StatStrip stats={stats} className="border-t-0 pt-0" />
         </div>
       </div>
 
